@@ -62,7 +62,35 @@
     </div>
 
     <script src="https://bot.jaicp.com/chatwidget/TwPglVoL:10b509827405f76565b2442eabb01452f3006299/justwidget.js" async></script>
-    
+     <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var bar = document.querySelector(".site-header");
+        if (bar) {
+            var onScroll = function () {
+                bar.classList.toggle("is-scrolled", window.scrollY > 12);
+            };
+            onScroll();
+            window.addEventListener("scroll", onScroll, { passive: true });
+        }
+
+        var items = document.querySelectorAll("[data-reveal]");
+        if (!("IntersectionObserver" in window)) {
+            items.forEach(function (el) { el.classList.add("is-visible"); });
+            return;
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: "0px 0px -32px 0px" });
+
+        items.forEach(function (el) { observer.observe(el); });
+    });
+    </script>
 </body>
 </html>
 
