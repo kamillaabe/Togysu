@@ -7,14 +7,15 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
 
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
     <div id="home" class="wrapper">
-   <header class="container">
-    <section class="id"><span class="logo"> Toǵysu</span>
-    <nav>
+   <header class="site-header">
+    <div class="container header-inner">
+    <section class="id"><span class="logo"> Toǵysu</span></section>
+    <nav aria-label="Основная навигация">
         <ul>
             <li><a href="#home">Home |</a></li>
             <li><a href="#comments">Comments |</a></li>
@@ -23,6 +24,7 @@
             <li class="btn"><a href="#form"> Write your comment</a></li>
         </ul>
     </nav>
+    </div>
 </header>
 <div class="hero container" data-reveal>
    <div class="hero--info">
@@ -40,35 +42,34 @@
     
     <label for="text-toggle" class="btn">tap for more</label>
 </div>
-</section>
-    <img src="5300894837686443917 (1).webp"> 
+    <img src="C:\Users\Admin\Downloads\5300894837686443917 (1).webp"> 
 </div>
 
 
     <div id="comments" class="container container-trending" data-reveal>
-    
-     <h3> Comments </h3>
-    
+    <div class="comments-head">
+     <h3 data-reveal> Comments </h3>
+     <a href="more.html" class="see-all" data-reveal> SEE ALL</a>
+    </div>
 
     <div class="games">
-        <div class="block">
+        <div class="block" data-reveal>
             <img src="5359579179629877662.jpg" alt="">
             <span>Уральск, Проспект Абулхаир хана, 87/1</span>
         </div>
-        <div class="block">
+        <div class="block" data-reveal>
             <img src="5359579179629877660.jpg" alt="">
             <span>Уральск, 5-й микрорайон, 30/2</span>
         </div>
-        <div class="block">
+        <div class="block" data-reveal>
             <img src="5361835033892689414.jpg" alt="">
             <span>Астана,район Байконыр, улица Адольфа Янушкевича, 1/2 </span>
         </div>
-        <div class="block">
+        <div class="block" data-reveal>
             <img src="5361835033892689412.jpg" alt="">
             <span> Астана, район Алматы, улица Куйши Дина, 37 
 </span>
         </div>
-        <a href="more.html" class="see-all"> SEE ALL</a>
     </div>
 </div>
 <div id="about" class="container big-text" data-reveal>
@@ -76,32 +77,44 @@
     <p><b> «Toǵysu»</b>  — это социальная инициатива, направленная на превращение Уральска в по-настоящему инклюзивный город. В нашем сообществе многие люди с инвалидностью ежедневно сталкиваются с трудностями из-за отсутствия доступной инфраструктуры, что ограничивает их свободу и социальную интеграцию. Наша цель — преодолеть этот разрыв, создав комплексную цифровую платформу, которая отображает доступные маршруты и выделяет безбарьерные места. Мы считаем, что городская мобильность — это фундаментальное право, а не привилегия. Сочетая современные веб-технологии с социальной активностью, наш проект направлен на то, чтобы дать возможность каждому гражданину с достоинством и независимостью передвигаться по городу, воплощая концепцию «умного города» в реальность для всех.</p>
 </div>
 <div class="container banner" data-reveal>
-    <h2>Terms of use</h2>
+    <h2 data-reveal>Terms of use</h2>
  <div id="terms" class="terms">
-    <div class="rules"> 
+    <div class="rules" data-reveal> 
         <span>Мы заботимся о безопасности. Пожалуйста, при создании снимков старайтесь не фиксировать лица прохожих и номера автомобилей для защиты личных данных.</span>
     </div>
 
-    <div class="rules"> 
+    <div class="rules" data-reveal> 
         <span>Каждая заявка проходит проверку. Указывайте точное название места и его корректную геолокацию (адрес), иначе мы не сможем опубликовать объект.</span> 
     </div>
 
-    <div class="rules"> 
+    <div class="rules" data-reveal> 
         <span>Фото должно наглядно показывать проблему (крутой пандус, отсутствие съезда). Чем понятнее фото, тем быстрее мы привлечем внимание к участку.</span> 
     </div>
 
 </div>
-<div id="form" class="contacts"> 
-    <h2>our contacts</h2>
-   <div class="teg">  <p> Link to the comment form: <span><a href="https://dnxx6fyv.forms.app/bezymyannaya-forma"> Tap the link </a></span>  </p>
+<div id="form" class="contacts" data-reveal> 
+    <h2 data-reveal>our contacts</h2>
+   <div class="teg" data-reveal>  <p> Link to the comment form: <span><a href="https://dnxx6fyv.forms.app/bezymyannaya-forma"> Tap the link </a></span>  </p>
    </div>
-    <div class="teg"><p> Telegram channel:<span><a href="https://t.me/Togysuteam"> @Toǵysuteam </a> </span>  </p>
+    <div class="teg" data-reveal><p> Telegram channel:<span><a href="https://t.me/Togysuteam"> @Toǵysuteam </a> </span>  </p>
    </div>
 </div>
 </div>
 <script 
 src="https://bot.jaicp.com/chatwidget/TwPglVoL:10b509827405f76565b2442eabb01452f3006299/justwidget.js" async>
+
+</script>
+<script>
 document.addEventListener("DOMContentLoaded", function () {
+    var bar = document.querySelector(".site-header");
+    if (bar) {
+        var onScroll = function () {
+            bar.classList.toggle("is-scrolled", window.scrollY > 12);
+        };
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+    }
+
     var items = document.querySelectorAll("[data-reveal]");
     if (!("IntersectionObserver" in window)) {
         items.forEach(function (el) { el.classList.add("is-visible"); });
@@ -115,9 +128,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.14, rootMargin: "0px 0px -40px 0px" });
+    }, { threshold: 0.12, rootMargin: "0px 0px -32px 0px" });
 
     items.forEach(function (el) { observer.observe(el); });
-})
+});
 </script>
 </body>
